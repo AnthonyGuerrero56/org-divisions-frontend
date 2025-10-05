@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { FixedPage } from './divisions/fixed-page/fixed-page';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [FixedPage],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

@@ -1,0 +1,35 @@
+<div class="page">
+  <nz-table
+    #basicTable
+    [nzData]="filteredAndSortedData()"
+    [nzFrontPagination]="true"
+    [nzPageSize]="pageSize"
+    nzShowSizeChanger
+    [nzLoading]="loading()"
+    [nzScroll]="{ x: '1000px' }"
+  >
+    <thead>
+      <tr>
+        <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+        <th [nzSortFn]="sortByName" [nzFilterFn]="filterByName" [nzFilters]="nameFilters" nzShowFilter>División</th>
+        <th [nzSortFn]="sortByParentName" [nzFilterFn]="filterByParentName" [nzFilters]="parentFilters" nzShowFilter>División superior</th>
+        <th [nzSortFn]="sortByCollaborators">Colaboradores</th>
+        <th [nzSortFn]="sortByLevel" [nzFilterFn]="filterByLevel" [nzFilters]="levelFilters" nzShowFilter>Nivel</th>
+        <th [nzSortFn]="sortBySubdivisions">Subdivisiones</th>
+        <th>Embajadores</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let d of basicTable.data; trackBy: trackByFn">
+        <td nzShowCheckbox [nzChecked]="isChecked(d.id)" (nzCheckedChange)="updateCheckedSet(d.id, $event)"></td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.parentName || '-' }}</td>
+        <td>{{ d.collaboratorsCount }}</td>
+        <td>{{ d.level }}</td>
+        <td>{{ d.subdivisionCount }}</td>
+        <td>{{ d.ambassadorFullName || '-' }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

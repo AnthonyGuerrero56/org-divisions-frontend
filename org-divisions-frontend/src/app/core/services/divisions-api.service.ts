@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Division } from '../models/division.model';
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class DivisionsApiService {
@@ -11,6 +11,7 @@ export class DivisionsApiService {
   private base = environment.apiBaseUrl;
 
   listAll(): Observable<Division[]> {
+    console.log('Intentando conectar a:', `${this.base}/divisions`);
     return this.http.get<Division[]>(`${this.base}/divisions`);
   }
 

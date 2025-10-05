@@ -1,0 +1,121 @@
+<div class="mandu-header">
+  <div class="header-content">
+    <div class="brand-section">
+      <div class="logo-placeholder">
+        <img src="/images/mandu.png" alt="Mandü Logo">
+      </div>
+    </div>
+
+    <!-- Principal navigation -->
+    <nav class="main-nav">
+      <a href="#" class="nav-item">Dashboard</a>
+      <a href="#" class="nav-item active">Organización</a>
+      <div class="nav-item dropdown">
+        <span>Modelos</span>
+        <nz-icon nzType="down" class="dropdown-icon"></nz-icon>
+      </div>
+      <div class="nav-item dropdown">
+        <span>Seguimiento</span>
+        <nz-icon nzType="down" class="dropdown-icon"></nz-icon>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <div class="action-icons">
+        <img src="/images/acciones.png" alt="">
+      </div>
+
+      <!-- User -->
+      <div class="user-section">
+        <div class="user-avatar">A</div>
+        <div class="user-info">
+          <span class="user-name">Administrador</span>
+          <nz-icon nzType="down" class="user-dropdown"></nz-icon>
+        </div>
+      </div>
+
+      <div class="right-logo">
+        <img src="/images/mandu_blanco.png" alt="Mandü Logo">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <div class="page-title">
+    <h2>Organización</h2>
+  </div>
+
+  <!-- Organization Tabs Section -->
+  <div class="organization-section">
+    <div class="organization-header">
+      <nz-tabset nzType="line" nzSize="large" class="organization-tabs">
+        <nz-tab nzTitle="Divisiones" [nzDisabled]="false">
+        </nz-tab>
+        <nz-tab nzTitle="Colaboradores" [nzDisabled]="true">
+        </nz-tab>
+      </nz-tabset>
+      
+      <!-- Action buttons with images -->
+      <div class="organization-actions">
+        <button class="action-btn">
+          <img src="/images/agregar.png" alt="Agregar">
+        </button>
+        <button class="action-btn">
+          <img src="/images/importar.png" alt="Importar">
+        </button>
+        <button class="action-btn">
+          <img src="/images/exportar.png" alt="Exportar">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Controls Section -->
+  <div class="view-controls-section">
+    <!-- Left side - View buttons -->
+    <div class="view-buttons">
+      <img src="/images/listado-arbol.png" alt="Listado/Árbol" class="view-toggle">
+    </div>
+    
+    <!-- Right side - Column selector and search -->
+    <div class="controls-right">
+      <nz-select 
+        nzPlaceHolder="Columnas" 
+        nzSize="default" 
+        class="column-selector" 
+        [nzDisabled]="true"
+        [nzOpen]="false">
+        <nz-option nzLabel="Todas las columnas" nzValue="all"></nz-option>
+        <nz-option nzLabel="Nombre" nzValue="name"></nz-option>
+        <nz-option nzLabel="Código" nzValue="code"></nz-option>
+        <nz-option nzLabel="División padre" nzValue="parent"></nz-option>
+        <nz-option nzLabel="Estado" nzValue="status"></nz-option>
+      </nz-select>
+      
+      <nz-input-group [nzSuffix]="suffixTemplate" nzSize="default">
+        <input 
+          type="text" 
+          nz-input 
+          placeholder="Buscar" 
+          [ngModel]="searchValue"
+          (ngModelChange)="onSearchChange($event)"
+        />
+      </nz-input-group>
+      
+      <ng-template #suffixTemplate>
+        <span class="search-suffix">
+          <nz-icon 
+            *ngIf="searchValue" 
+            nzType="close-circle" 
+            (click)="clearSearch()"
+            class="clear-icon">
+          </nz-icon>
+          <nz-icon nzType="search" class="search-icon"></nz-icon>
+        </span>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<app-divisions-page></app-divisions-page>

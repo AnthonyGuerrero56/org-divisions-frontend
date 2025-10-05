@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Aplicar fuente Segoe UI a toda la aplicación */
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+app-root {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+app-fixed-page {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+/* Assure NG-ZORRO uses Segoe UI */
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-tabs,
+.ant-table,
+.ant-pagination {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}

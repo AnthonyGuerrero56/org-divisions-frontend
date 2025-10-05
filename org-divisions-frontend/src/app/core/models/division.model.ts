@@ -10,6 +10,6 @@ export interface Division {
 }
 
 export interface DivisionRow extends Division {
-  parentName?: string | null;    // derivado
-  subdivisionCount: number;      // derivado
+  parentName?: string | null;
+  subdivisionCount: number;
 }
