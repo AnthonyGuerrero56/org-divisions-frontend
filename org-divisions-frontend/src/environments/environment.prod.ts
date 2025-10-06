@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://mi-backend-en-produccion.com'
+  apiBaseUrl: 'https://org-divisions-backend.onrender.com'
 };
