@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/org-divisions-frontend",
+  "outputDirectory": "dist/org-divisions-frontend/browser",
   "installCommand": "npm install",
   "routes": [
     {
